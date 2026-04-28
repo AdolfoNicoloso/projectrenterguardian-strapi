@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_profiles",
+  "info": {
+    "singularName": "app-profile",
+    "pluralName": "app-profiles",
+    "displayName": "App Profile"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firebase_uid": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "onboarding_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property.property",
+      "mappedBy": "app_profile"
+    }
+  }
+}

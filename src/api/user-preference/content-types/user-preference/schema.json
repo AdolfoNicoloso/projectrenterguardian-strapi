@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_preferences",
+  "info": {
+    "singularName": "user-preference",
+    "pluralName": "user-preferences",
+    "displayName": "User Preference"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "app_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-profile.app-profile"
+    },
+    "theme_preference": {
+      "type": "enumeration",
+      "enum": ["light", "dark", "auto"],
+      "default": "auto",
+      "required": true
+    },
+    "preferred_language": {
+      "type": "string",
+      "maxLength": 32
+    }
+  }
+}

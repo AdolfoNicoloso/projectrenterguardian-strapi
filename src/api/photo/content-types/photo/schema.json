@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photos",
+  "info": {
+    "singularName": "photo",
+    "pluralName": "photos",
+    "displayName": "Photo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "photos"
+    },
+    "space": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::space.space"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "files"]
+    },
+    "captured_at": {
+      "type": "datetime",
+      "required": true
+    },
+    "exif_datetime_original": {
+      "type": "datetime"
+    },
+    "assignment_status": {
+      "type": "enumeration",
+      "enum": ["unassigned", "confirmed"],
+      "default": "unassigned",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "assignments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo-assignment.photo-assignment",
+      "mappedBy": "photo"
+    }
+  }
+}

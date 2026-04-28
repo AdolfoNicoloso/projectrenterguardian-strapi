@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spaces",
+  "info": {
+    "singularName": "space",
+    "pluralName": "spaces",
+    "displayName": "Space"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "spaces"
+    },
+    "space_type": {
+      "type": "enumeration",
+      "enum": [
+        "living_room",
+        "kitchen",
+        "hallway",
+        "bedroom",
+        "bathroom",
+        "garage",
+        "dining_room",
+        "custom_space_type"
+      ],
+      "required": true
+    },
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "custom_space_type": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "is_default": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

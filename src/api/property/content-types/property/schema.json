@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "Property"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "app_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-profile.app-profile",
+      "inversedBy": "properties"
+    },
+    "address_free_text": {
+      "type": "text",
+      "required": true
+    },
+    "lease_start_date": {
+      "type": "date",
+      "required": true
+    },
+    "lease_end_date": {
+      "type": "date"
+    },
+    "lease_term": {
+      "type": "integer"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "state_code": {
+      "type": "string",
+      "maxLength": 8
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["active", "archived"],
+      "default": "active"
+    },
+    "street": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "integer"
+    },
+    "spaces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::space.space",
+      "mappedBy": "property"
+    },
+    "photos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo.photo",
+      "mappedBy": "property"
+    },
+    "reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::report.report",
+      "mappedBy": "property"
+    },
+    "inspections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection.inspection",
+      "mappedBy": "property"
+    }
+  }
+}

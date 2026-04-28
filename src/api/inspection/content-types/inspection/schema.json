@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inspections",
+  "info": {
+    "singularName": "inspection",
+    "pluralName": "inspections",
+    "displayName": "Inspection"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "inspections"
+    },
+    "created_by_user_id": {
+      "type": "string",
+      "required": true
+    },
+    "inspection_status": {
+      "type": "enumeration",
+      "enum": ["in_progress", "completed"],
+      "default": "in_progress",
+      "required": true
+    },
+    "inspection_type": {
+      "type": "string",
+      "required": true
+    },
+    "started_at": {
+      "type": "datetime",
+      "required": true
+    },
+    "completed_at": {
+      "type": "datetime"
+    },
+    "last_step": {
+      "type": "string"
+    },
+    "inspections_progress": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "required": true
+    },
+    "steps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection-step.inspection-step",
+      "mappedBy": "inspection"
+    }
+  }
+}

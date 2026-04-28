@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photo_assignments",
+  "info": {
+    "singularName": "photo-assignment",
+    "pluralName": "photo-assignments",
+    "displayName": "Photo Space Assignment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "photo": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::photo.photo",
+      "inversedBy": "assignments"
+    },
+    "space": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::space.space"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["confirmed"],
+      "default": "confirmed",
+      "required": true
+    },
+    "confirmed_at": {
+      "type": "datetime"
+    },
+    "confirmed_by_app_profile": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "method": {
+      "type": "string",
+      "default": "manual",
+      "maxLength": 32
+    }
+  }
+}

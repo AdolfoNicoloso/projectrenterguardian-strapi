@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inspection_steps",
+  "info": {
+    "singularName": "inspection-step",
+    "pluralName": "inspection-steps",
+    "displayName": "Inspection Step"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inspection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inspection.inspection",
+      "inversedBy": "steps"
+    },
+    "step_key": {
+      "type": "string",
+      "required": true
+    },
+    "inspection_step_status": {
+      "type": "enumeration",
+      "enum": ["not_started", "in_progress", "completed"],
+      "default": "not_started",
+      "required": true
+    },
+    "payload_json": {
+      "type": "json"
+    }
+  }
+}

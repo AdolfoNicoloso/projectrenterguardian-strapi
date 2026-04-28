@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "Report"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "reports"
+    },
+    "report_type": {
+      "type": "string",
+      "required": true
+    },
+    "snapshot_json": {
+      "type": "json"
+    },
+    "context_state_code": {
+      "type": "string",
+      "maxLength": 8
+    },
+    "disclaimer_version": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "generated_at": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "generating", "ready", "failed"],
+      "default": "draft",
+      "required": true
+    },
+    "pdf_file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["files"]
+    }
+  }
+}
